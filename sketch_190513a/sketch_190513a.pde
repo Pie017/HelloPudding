@@ -6,16 +6,27 @@ PFont YS_font;
 PFont DewB_font;
 PFont nBG_font;
 
+//button
+Button button_story;
+Button button_start;
+Button button_main;
+Button button_start2;
+
 void setup() {
   size(800, 800);
-  SS_font = loadFont("SangSangYoungestDaughter-48.vlw");
-  YS_font = loadFont("KoreanYNSJG2-R-48.vlw");
-  DewB_font = loadFont("Dewberry-Bold-48.vlw");
-  nBG_font = loadFont("NanumBarunGothic-48.vlw");
+  Initialize();
 }
 
 void draw() {
   ChangeScene(stage);
+}
+
+void Initialize(){  
+  // Load Fonts
+  SS_font = loadFont("SangSangYoungestDaughter-48.vlw");
+  YS_font = loadFont("KoreanYNSJG2-R-48.vlw");
+  DewB_font = loadFont("Dewberry-Bold-48.vlw");
+  nBG_font = loadFont("NanumBarunGothic-48.vlw");
 }
 
 void ChangeScene(int n) {
@@ -52,15 +63,15 @@ void Main() {
   text("본격 집사 첼렌지!", width/2, height/2-200);
 
   //버튼1: story
-  textFont(SS_font, 35);
-  Button button_story = new Button("story", width/2-125, height/2+20, 250, 100, #E0C5C5);
-  noStroke();
+  button_story = new Button("story", width/2-125, height/2+20, 250, 100, #E0C5C5);
   button_story.DrawButton();
+  if(button_story.over()) stage=1;
+  
+  
   //버튼 2: start
-  textFont(SS_font, 35);
-  Button button_start = new Button("start", width/2-125, height/2 +150, 250, 100, #E0C5C5);
-  noStroke();
+  button_start = new Button("start", width/2-125, height/2 +150, 250, 100, #E0C5C5);
   button_start.DrawButton();
+  if(button_start.over()) stage = 2;
 }
 
 void Story() {
@@ -74,27 +85,17 @@ void Story() {
   text("꼬질꼬질하고 까칠한 아이에게 푸딩이라 이름 붙이는데..", width/2, a+60);
   text("과연 당신은 푸딩을 행복하게 해줄", width/2, a+90);
   text("좋은 집사가 될 수 있을까?", width/2, a+120);
+  
   //버튼1: main
-  textFont(SS_font, 35);
-  Button button_main = new Button("main", width/2-125, height/2+20, 250, 100, #E0C5C5);
-  noStroke();
+  button_main = new Button("main", width/2-125, height/2+20, 250, 100, #E0C5C5);
   button_main.DrawButton();
+  if(button_main.over()) stage = 0;
+ 
   //버튼2: start
-  textFont(SS_font, 35);
-  Button button_start = new Button("start", width/2-125, height/2 +150, 250, 100, #E0C5C5);
-  noStroke();
-  button_start.DrawButton();
+  button_start2 = new Button("start", width/2-125, height/2 +150, 250, 100, #E0C5C5);
+  button_start2.DrawButton();
+  if(button_start2.over()) stage=2;
 }
 
 void Scene1() {
-}
-
-void keyPressed() {
-
-  if (stage==0) stage=1;
-  else if (stage==1) stage=2;
-}
-
-void mouseClicked() {
-  //if(stage==1 &&
 }
