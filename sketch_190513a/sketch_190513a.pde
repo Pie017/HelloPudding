@@ -16,6 +16,11 @@ void setup(){
 
 void draw(){
   ChangeScene(stage);
+  
+  Button button = new Button("Hello", 10, 10, 100, 40);
+  button.ChangeColor(200);
+  button.DrawButton();
+  
 }
 
 void ChangeScene(int n){
@@ -44,7 +49,7 @@ void Main(){
     textFont(SS_font, 35);
     textAlign(CENTER);
     text("안녕, 푸딩!", width/2, height/2-150);
-    textFont(DewB, 25);
+    textFont(DewB_font, 25);
     fill(#B48387);
     text("Help me find her.. ToT", width/2, height/2-110);
   //change
