@@ -1,21 +1,26 @@
-public class Button{
-  private String text;
-  private int w, h;
-  private int x, y;
-  private color buttonColor;
-  
-  public Button(String _text, int _x, int _y, int _w, int _h){
+class Button {
+  String text;
+  int x, y, w, h;
+  color buttonColor;
+  color textColor;
+
+  Button(String _text, int _x, int _y, int _w, int _h, color _color) {
     text = _text;
-    w = _w; h = _h;
-    x = _x; y = _y;
+    w = _w; 
+    h = _h;
+    x = _x; 
+    y = _y;
+    buttonColor = _color;
   }
-  
-  void DrawButton(){
+
+  // boolean over(){
+
+
+  // } 
+  void DrawButton() {
     fill(buttonColor);
     rect(x, y, w, h);
-  }
-  
-  void ChangeColor(color newColor){
-    buttonColor = newColor;
+    fill(textColor);
+    text(text, x+w/2, y+h/2+10);
   }
 }
