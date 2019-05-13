@@ -4,8 +4,6 @@ class Button {
   String text;
   int x, y, w, h;
   color buttonColor;
-  color textColor;
-  PFont textFont;
 
   Button(String _text, int _x, int _y, int _w, int _h, color _color) {
     text = _text;
@@ -35,10 +33,13 @@ class Button {
   void DrawButton() {
     fill(buttonColor);
     noStroke();
+    if ( x< mouseX && mouseX < x+w && y < mouseY && mouseY < y+h) {
+      stroke(255,200);
+      strokeWeight(7);
+    } else noStroke();
     rect(x, y, w, h);
-    fill(textColor);
-    textFont(SS_font, 35);
+    fill(70);
+    textFont(DewB_font, 35);
     text(text, x+w/2, y+h/2+10);
-    //over();
   }
 }
